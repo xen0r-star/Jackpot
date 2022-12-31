@@ -1,93 +1,54 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int reading_file(const char* file_name) {
+    FILE* file = fopen(file_name, "r");
+    if (file == NULL) {
+        printf("Erreur ouverture du fichier %s", file_name);
+        return 1;
+    }
+    unsigned char buffer[4];
+    fread(buffer, 1, 4, file); // on lit 4 octets du fichier dans le tableau `buffer``
+    union { // un int c'est 4 octets donc on dit qu'on va le mettre octet par octet (unsigned char = octet)
+        unsigned char b[4];
+        int i;
+    } u;
+    u.b[0] = buffer[0]; // Premier octet dans l'init
+    u.b[1] = buffer[1]; // Deuxieme octet dans l'init
+    u.b[2] = buffer[2]; // Troisieme octet dans l'init
+    u.b[3] = buffer[3]; // Quatrieme octet dans l'init
+    return u.i;
+}
+
+int write_file(const char* file_name, int value) {
+    unsigned char *value_2 = (unsigned char *) &value;
+    FILE *file = fopen(file_name, "w");
+    if (file == NULL) {
+        printf("Erreur lors de l'ouverture du fichier !\n");
+        return 1;
+    }
+    fprintf(file, "%c%c%c%c", value_2[0], value_2[1], value_2[2], value_2[3]);
+    fclose(file);
+}
+
 int main() {
+    int value_Spin;
+    int value_MS;
+    int value_S;
+    
+    int Spin = reading_file("donne/Spin.save");
+    int MS = reading_file("donne/MS.save");
+    int S = reading_file("donne/S.save");
+    printf("Spin : %d, MS : %d, S : %d", Spin, MS, S);
 
-// Spin
-    char* buffer_Spin; // Déclaration de la variable pour stocker le contenu du fichier
-    FILE* file_Spin = fopen("donne/Spin.save", "r"); // Ouverture du fichier en mode lecture
-    if (file_Spin == NULL) { // Vérification de l'ouverture du fichier
-        perror("Erreur ouverture fichier");
-        return 1;
-    }
-    fseek(file_Spin, 0, SEEK_END); // Détermination de la taille du fichier
-    long file_Spin_size = ftell(file_Spin);
-    rewind(file_Spin);
-    buffer_Spin = (char*)malloc((file_Spin_size + 1) * sizeof(char)); // Allocation de la mémoire pour le buffer_Spin
-    if (buffer_Spin == NULL) { // Vérification de l'allocation de mémoire
-        perror("Erreur mémoire");
-        fclose(file_Spin);
-        return 1;
-    }
-    size_t result_Spin = fread(buffer_Spin, 1, file_Spin_size, file_Spin); // Lecture du fichier dans le buffer_Spin
-    if (result_Spin != file_Spin_size) { // Vérification de la lecture réussie
-        perror("Erreur lecture fichier");
-        fclose(file_Spin);
-        free(buffer_Spin);
-        return 1;
-    }
-    buffer_Spin[file_Spin_size] = '\0'; // Ajout d'un caractère de fin de chaîne à la fin du buffer_Spin
-    fclose(file_Spin); // Fermeture du fichier
-    int Spin = atoi(buffer_Spin);
-    free(buffer_Spin); // Libération de la mémoire allouée pour le buffer_Spin
 
-// MS
-    char* buffer_MS;
-    FILE* file_MS = fopen("donne/MS.save", "r");
-    if (file_MS == NULL) {
-        perror("Erreur ouverture fichier");
-        return 1;
-    }
-    fseek(file_MS, 0, SEEK_END);
-    long file_MS_size = ftell(file_MS);
-    rewind(file_MS);
-    buffer_MS = (char*)malloc((file_MS_size + 1) * sizeof(char));
-    if (buffer_MS == NULL) {
-        perror("Erreur memoire");
-        fclose(file_MS);
-        return 1;
-    }
-    size_t result_MS = fread(buffer_MS, 1, file_MS_size, file_MS);
-    if (result_MS != file_MS_size) {
-        perror("Erreur lecture fichier");
-        fclose(file_MS);
-        free(buffer_MS);
-        return 1;
-    }
-    buffer_MS[file_MS_size] = '\0';
-    fclose(file_MS);
-    int MS = atoi(buffer_MS);
-    free(buffer_MS);
+    scanf("Valeur Spin : %d", &value_Spin);
+    scanf("Valeur MS : %d", &value_MS);
+    scanf("Valeur S : %d", &value_S);
 
-// S
-    char* buffer_S;
-    FILE* file_s = fopen("donne/S.save", "r");
-    if (file_s == NULL) {
-        perror("Erreur ouverture fichier");
-        return 1;
-    }
-    fseek(file_s, 0, SEEK_END);
-    long file_s_size = ftell(file_s);
-    rewind(file_s);
-    buffer_S = (char*)malloc((file_s_size + 1) * sizeof(char));
-    if (buffer_S == NULL) {
-        perror("Erreur mémoire");
-        fclose(file_s);
-        return 1;
-    }
-    size_t result_S = fread(buffer_S, 1, file_s_size, file_s);
-    if (result_S != file_s_size) {
-        perror("Erreur lecture fichier");
-        fclose(file_s);
-        free(buffer_S);
-        return 1;
-    }
-    buffer_S[file_s_size] = '\0';
-    fclose(file_s);
-    int S = atoi(buffer_S);
-    free(buffer_S);
-
-    printf("Spin : %d, MS : %d, S : %d",Spin,MS,S);
+    write_file("donne/Spin.save", value_Spin);
+    write_file("donne/S.save", value_S);
+    write_file("donne/MS.save", value_MS);
 
     return 0;
 }
