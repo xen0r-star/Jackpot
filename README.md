@@ -26,7 +26,7 @@
 
 ## Jeux
 
-Le but est de faire correspondre les symboles pour obtenir une combinaison gagnante et ainsi remporter des point. Le nombre de point dépend de la combinaison gagnante
+Le but du jeu Jackpot qui est une machine a sous est de faire correspondre les symboles sur les rouleaux de la machine afin de créer une combinaison gagnante. Si vous parvenez à obtenir une combinaison gagnante, vous remporterez des points. Le nombre de points que vous recevrez dépend de la combinaison gagnante que vous avez réalisée.
 
 ## Telecharger
 
@@ -42,14 +42,15 @@ $ cd Jackpot
 > **Note**
 > La commande `git clone` de [Git](https://git-scm.com/) permet de créer une copie exacte d'un dépôt Git sur votre ordinateur. Elle est souvent utilisée pour télécharger des projets open source.
 
+
+
 - Télécharger Jackpot à partir du zip
 
 Vous pouvez télécharger Jackpot en utilisant le [fichier zip](https://github.com/xen0r-star/Jackpot/archive/refs/heads/main.zip). Pour cela, il vous suffit simplement de décompresser le fichier. Cela vous permettra d'accéder au contenu du jeu et de l'utiliser sur votre ordinateur.
 
 ## Mode_emploi
 
--------
-<!-- You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux. -->
+--------
 
 ## Credits
 
