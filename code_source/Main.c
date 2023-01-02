@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <time.h>
+
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
+
+// #include "Extension/Read_file.c"
+// #include "Extension/Write_file.c"
 
 
 const int WINDOW_WIDTH = 640;
@@ -16,21 +20,21 @@ void sleep_end_of_frame() {
     nanosleep(&sleep, NULL);
 }
 
-// Image
-void afficher_image(SDL_Renderer *renderer, const char *nom_fichier)
-{
-    SDL_Surface *image = IMG_Load(nom_fichier); // Charger l'image à afficher
-    if(!image) {
-        printf("Erreur de chargement de l'image : %s",SDL_GetError());
-    }
-    SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, image); // Créer une texture à partir de l'image chargée
-    SDL_RenderCopy(renderer, texture, NULL, NULL); // Afficher l'image dans la fenêtre
-    SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(texture); // Nettoyer les ressources SDL
-    SDL_FreeSurface(image);
-}
+// // Image
+// void afficher_image(SDL_Renderer *renderer, const char *nom_fichier)
+// {
+//     SDL_Surface *image = IMG_Load(nom_fichier); // Charger l'image à afficher
+//     if(!image) {
+//         printf("Erreur de chargement de l'image : %s",SDL_GetError());
+//     }
+//     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, image); // Créer une texture à partir de l'image chargée
+//     SDL_RenderCopy(renderer, texture, NULL, NULL); // Afficher l'image dans la fenêtre
+//     SDL_RenderPresent(renderer);
+//     SDL_DestroyTexture(texture); // Nettoyer les ressources SDL
+//     SDL_FreeSurface(image);
+// }
 
-int main(int argc, char** args)
+int main(int argc, char** argv)
 {
     SDL_Window* window = NULL; // The window we'll be rendering to
     SDL_Surface* screenSurface = NULL; // The surface contained by the window
@@ -54,11 +58,21 @@ int main(int argc, char** args)
         SDL_RenderClear(renderer);
 
     // Police de texte
-        TTF_Font* Sans = TTF_OpenFont("Humnst777_BlkCn_BT.ttf", 24);
+        TTF_Font* Sans = TTF_OpenFont("Element/Humnst777_BlkCn_BT.ttf", 24);
         if (Sans == NULL) {
             printf("Could not open font, error: %s\n", SDL_GetError());
             return 1;
         }
+
+    // utilisation de la fonction de read_file.c
+        int Spin;
+        int S;
+        int MS;
+
+        read_file("donne/Spin.save", &Spin);
+        read_file("donne/S.save", &S);
+        read_file("donne/MS.save", &MS);
+        printf("Spin : %d, S : %d, MS : %d\n", Spin, S, MS);
 
     //Jeux
         SDL_Event event;
@@ -67,7 +81,7 @@ int main(int argc, char** args)
                 break;
 
                 // Afficher l'image dans la fenêtre
-                afficher_image(renderer, "Jackpot.bmp");
+                // // afficher_image(renderer, "Element/Jackpot.bmp");
 
             SDL_RenderPresent(renderer);
             sleep_end_of_frame();

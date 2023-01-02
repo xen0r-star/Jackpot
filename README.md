@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="/code_source/Logo.png" width="200">
+  <img src="code_source/Element/Logo.png" width="200">
   <br>
 </h1>
 
@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="#But">But</a> •
+  <a href="#Jeux">Jeux</a> •
   <a href="#Telecharger">Télécharger</a> •
   <a href="#Mode_emploi">Mode d’emploi</a> •
   <a href="#credits">Crédits</a> •
@@ -24,13 +24,13 @@
 
 <!-- ![screenshot](gif.gif) quand il y aura un gif montrant une partie -->
 
-## But
+## Jeux
 
---------
+Le but est de faire correspondre les symboles pour obtenir une combinaison gagnante et ainsi remporter des point. Le nombre de point dépend de la combinaison gagnante
 
 ## Telecharger
 
----------
+- Télécharger Jackpot à partir de Git
 
 ```bash
 # Clone le dossier
@@ -39,10 +39,12 @@ $ git clone https://github.com/xen0r-star/Jackpot
 # Allez dans le dossier
 $ cd Jackpot
 ```
+> **Note**
+> La commande `git clone` de [Git](https://git-scm.com/) permet de créer une copie exacte d'un dépôt Git sur votre ordinateur. Elle est souvent utilisée pour télécharger des projets open source.
 
-<!-- > **Note**
-> If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt. -->
+- Télécharger Jackpot à partir du zip
 
+Vous pouvez télécharger Jackpot en utilisant le [fichier zip](https://github.com/xen0r-star/Jackpot/archive/refs/heads/main.zip). Pour cela, il vous suffit simplement de décompresser le fichier. Cela vous permettra d'accéder au contenu du jeu et de l'utiliser sur votre ordinateur.
 
 ## Mode_emploi
 
