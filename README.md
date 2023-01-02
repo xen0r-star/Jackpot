@@ -19,7 +19,7 @@
   <a href="#Jeux">Jeux</a> •
   <a href="#Telecharger">Télécharger</a> •
   <a href="#Mode_emploi">Mode d’emploi</a> •
-  <a href="#credits">Crédits</a> •
+  <a href="#credits">Crédits</a>
 </p>
 
 <!-- ![screenshot](gif.gif) quand il y aura un gif montrant une partie -->
@@ -42,7 +42,7 @@ $ cd Jackpot
 > **Note**
 > La commande `git clone` de [Git](https://git-scm.com/) permet de créer une copie exacte d'un dépôt Git sur votre ordinateur. Elle est souvent utilisée pour télécharger des projets open source.
 
-
+<br>
 
 - Télécharger Jackpot à partir du zip
 
@@ -50,7 +50,23 @@ Vous pouvez télécharger Jackpot en utilisant le [fichier zip](https://github.c
 
 ## Mode_emploi
 
---------
+Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le dossier du jeux est organiser de telle sort a se qu'il est : 
+
+  /Jackpot.exe `Pour lancer le jeux`
+  /Donne/ `Endroit ou son stocké les donnée du jeux`
+  /code_source/ `tout le code du jeux Jackpot`
+
+  <h1 align="center">
+    <br>
+      <img src="code_source/Element/Example.png" width="200">
+  </h1>
+
+  1. Spin `Pour lancer les une partie`
+  2. Spin restant `Nombre de spin qu'il vous reste. Vous en avez 10. Lorsqu'il est a 0 il remets le score a 0 est remets les spin a 10`
+  3. Score `Votre score vous gagner des point en fessant des combiniasons`
+  4. Meilleur score `Meilleur score que vous avez fait`
+  5. Rouleaux `----`
+  6. Combinaison ``
 
 ## Credits
 
