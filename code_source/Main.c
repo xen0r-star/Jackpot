@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <windows.h>
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
@@ -20,19 +21,6 @@ void sleep_end_of_frame() {
     nanosleep(&sleep, NULL);
 }
 
-// // Image
-// void afficher_image(SDL_Renderer *renderer, const char *nom_fichier)
-// {
-//     SDL_Surface *image = IMG_Load(nom_fichier); // Charger l'image à afficher
-//     if(!image) {
-//         printf("Erreur de chargement de l'image : %s",SDL_GetError());
-//     }
-//     SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, image); // Créer une texture à partir de l'image chargée
-//     SDL_RenderCopy(renderer, texture, NULL, NULL); // Afficher l'image dans la fenêtre
-//     SDL_RenderPresent(renderer);
-//     SDL_DestroyTexture(texture); // Nettoyer les ressources SDL
-//     SDL_FreeSurface(image);
-// }
 
 int main(int argc, char** argv)
 {
@@ -45,7 +33,7 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    window = SDL_CreateWindow("Point", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0); // Create window
+    window = SDL_CreateWindow("Jackpot", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WINDOW_WIDTH, WINDOW_HEIGHT, 0); // Create window
 
     renderer = SDL_CreateRenderer(window, -1, 0); // Create renderer
     if (renderer == NULL) {
@@ -53,32 +41,56 @@ int main(int argc, char** argv)
         return 1;
     }
 
+    // // Bordure
+    //     HWND hwnd = GetActiveWindow();
+    //     COLORREF color = RGB(255, 0, 0); // Rouge
+    //     SetSysColors(1, &COLOR_WINDOWFRAME, &color);
+
+    // Icon fenetre
+        SDL_Surface* icon = IMG_Load("code_source\\Element\\Logo_2.bmp");
+        if (icon == NULL) {
+            printf("Erreur lors du chargement de l icone : %s\n", SDL_GetError());
+        }
+        SDL_FreeSurface(icon);
+        SDL_SetWindowIcon(window, icon); // Définition de l'icône de la fenêtre
+
     // color 
         SDL_SetRenderDrawColor(renderer, 11, 17, 35, 1);
         SDL_RenderClear(renderer);
 
     // Police de texte
-        TTF_Font* Sans = TTF_OpenFont("Element/Humnst777_BlkCn_BT.ttf", 24);
+        if (TTF_Init() == -1) {
+        printf("Erreur lors de l'initialisation de SDL_ttf : %s\n", TTF_GetError());
+        }
+        TTF_Font* Sans = TTF_OpenFont("code_source\\Element\\Humnst777_BlkCn_BT.ttf", 24);
         if (Sans == NULL) {
             printf("Could not open font, error: %s\n", SDL_GetError());
-            return 1;
         }
 
-    // utilisation de la fonction de read_file.c
-        int Spin;
-        int S;
-        int MS;
+    // Image
+        SDL_Surface* image = SDL_LoadBMP("code_source\\Element\\Jackpot.bmp"); // Charger l'image à afficher
+        if(image == NULL) {
+            printf("Erreur de chargement de l image : %s\n",SDL_GetError());
+        }
+            
+        SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image); // Création de la texture à partir de l'image
+        SDL_FreeSurface(image);
 
-        read_file("donne/Spin.save", &Spin);
-        read_file("donne/S.save", &S);
-        read_file("donne/MS.save", &MS);
-        printf("Spin : %d, S : %d, MS : %d\n", Spin, S, MS);
+        SDL_Rect texture_rect; // Définition des dimensions de la texture
+        texture_rect.x = 0;
+        texture_rect.y = 0;
+        texture_rect.w = WINDOW_WIDTH;
+        texture_rect.h = WINDOW_WIDTH;
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
+    
 
     //Jeux
         SDL_Event event;
         while (1) {
             if (SDL_PollEvent(&event) && event.type == SDL_QUIT)
                 break;
+
+                SDL_RenderClear(renderer);
 
                 // Afficher l'image dans la fenêtre
                 // // afficher_image(renderer, "Element/Jackpot.bmp");
@@ -90,6 +102,7 @@ int main(int argc, char** argv)
     SDL_DestroyRenderer(renderer); // Destroy renderer
     SDL_DestroyWindow(window); // Destroy window
     SDL_Quit(); // Quit SDL subsystems
+    // SDL_DestroyTexture(icon_texture); // Destroy icon
 
     return 0;
 }

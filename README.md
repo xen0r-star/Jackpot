@@ -65,8 +65,8 @@ Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le 
   2. Spin restant `Nombre de spin qu'il vous reste. Vous en avez 10. Lorsqu'il est a 0 il remets le score a 0 est remets les spin a 10`
   3. Score `Votre score vous gagner des point en fessant des combiniasons`
   4. Meilleur score `Meilleur score que vous avez fait`
-  5. Rouleaux `----`
-  6. Combinaison ``
+  5. Rouleaux `-----`
+  6. Combinaison `-----`
 
 ## Credits
 
