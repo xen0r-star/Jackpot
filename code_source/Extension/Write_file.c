@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-    int write_file(const char* file_name, int value) {
+    int Write_file(const char* file_name, int value) {
         FILE* file = fopen(file_name, "w"); // Ouverture du fichier en écriture
         if (file == NULL) { // Vérification ouverture fichier
             return 1;
