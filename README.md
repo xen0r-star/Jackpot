@@ -66,7 +66,7 @@ Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le 
   3. Score `Votre score vous gagner des point en fessant des combiniasons`
   4. Meilleur score `Meilleur score que vous avez fait`
   5. Rouleaux `-----`
-  6. Combinaison `-----`
+  6. Combinaison `Les combiniasons / symbole a faire pour gagner des point ou spin`
 
 ## Credits
 
