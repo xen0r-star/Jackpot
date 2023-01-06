@@ -52,9 +52,9 @@ Vous pouvez télécharger Jackpot en utilisant le [fichier zip](https://github.c
 
 Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le dossier du jeux est organiser de telle sort a se qu'il est : 
 
-  `/Jackpot.exe` Pour lancer le jeux
-  `/Donne/` Endroit ou son stocké les donnée du jeux
-  `/code_source/` tout le code du jeux Jackpot
+  `/Jackpot.exe` Pour lancer le jeux <br>
+  `/Donne/` Endroit ou son stocké les donnée du jeux <br>
+  `/code_source/` tout le code du jeux Jackpot <br>
 
   <h1 align="center">
     <br>
