@@ -3,13 +3,15 @@
 #include <windows.h>
 #include <math.h>
 
+// SDL
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 
-#include "Extension/Read_file.h"
-#include "Extension/Write_file.h"
-#include "Extension/Draw_picture.h"
+// Fonction
+#include "Extension/File.h"
+#include "Extension/Draw.h"
+#include "Extension/Text.h"
 
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 600;
@@ -78,33 +80,9 @@ int main(int argc, char **argv) {
     Read_file("donne/MS.save", &MS);
     printf("Spin : %d, S : %d, MS : %d\n", Spin, S, MS);
 
-    struct Spin_struct {
-        int n;
-        int x;
-        int y;
-        int w;
-        int h;
-        char *c;
-    };
-    struct Spin_struct Spin_struct_2;
-    Spin_struct_2.n = log10(Spin) + 1;
-    Spin_struct_2.x = 531 - ((Spin_struct_2.n - 1) * 6);
-    Spin_struct_2.y = 534;
-    Spin_struct_2.w = 12 + ((Spin_struct_2.n - 1) * 12);
-    Spin_struct_2.h = 35;
-    Spin_struct_2.c = "10";
+    Text_Spin(renderer, Spin, Sans, White);
 
-    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, Spin_struct_2.c, White); // Text
-    SDL_Texture* Message = SDL_CreateTextureFromSurface(renderer, surfaceMessage);
-    SDL_Rect Message_rect;
-    Message_rect.x = Spin_struct_2.x;  // X
-    Message_rect.y = Spin_struct_2.y; // Y
-    Message_rect.w = Spin_struct_2.w; // Longeur
-    Message_rect.h = Spin_struct_2.h; // Hauteur
-    SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
-    SDL_FreeSurface(surfaceMessage);
-    SDL_DestroyTexture(Message);
-    printf("%d, %d, %d, %d, %d, \"%s\"", Spin_struct_2.n, Spin_struct_2.x, Spin_struct_2.y, Spin_struct_2.w, Spin_struct_2.h, Spin_struct_2.c);
+
 
     // Fonction write_file
     // Write_file("donne/Spin.save", Spin);
