@@ -2,6 +2,8 @@
     "C_Cpp.errorSquiggles": "disabled",
     "files.associations": {
         "draw_picture.h": "c",
-        "write_file.h": "c"
+        "write_file.h": "c",
+        "stdio.h": "c",
+        "draw.h": "c"
     }
 }

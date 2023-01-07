@@ -1,7 +1,5 @@
 #include <stdio.h>
-
 #include <SDL2/SDL.h>
-#include <SDL2/SDL_ttf.h>
 #include <SDL2/SDL_image.h>
 
 void Draw_picture(SDL_Renderer *renderer, int x, int y, int w, int h, const char *filename) {
