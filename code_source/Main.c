@@ -81,8 +81,9 @@ int main(int argc, char **argv) {
     printf("Spin : %d, S : %d, MS : %d\n", Spin, S, MS);
 
     Text_Spin(renderer, Spin, Sans, White);
-
-
+    Text_S(renderer, S, Sans, White);
+    Text_MS(renderer, MS, Sans, White);
+    
 
     // Fonction write_file
     // Write_file("donne/Spin.save", Spin);
