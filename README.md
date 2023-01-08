@@ -56,7 +56,7 @@ Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le 
   `/Donne/` Endroit ou son stocké les donnée du jeux <br>
   `/code_source/` tout le code du jeux Jackpot <br>
 
-  <h1 align="right">
+  <h1 align="left">
     <br>
       <img src="code_source/Element/Example.png" width="400">
   </h1>
