@@ -5,20 +5,23 @@
 
 int Text_Spin (SDL_Renderer *renderer, int Spin, TTF_Font *Sans,SDL_Color White) {
 
+    Spin = Spin > 999 ? 999 : Spin;
+
     struct Spin_struct {
         int n;
         int x;
         int y;
         int w;
         int h;
-        char *c;
+        char c[5];
     };
     struct Spin_struct Spin_struct_2;
     Spin_struct_2.n = log10(Spin) + 1;
-    Spin_struct_2.x = 531 - ((Spin_struct_2.n - 1) * 6);
+    Spin_struct_2.x = 531 - (Spin_struct_2.n <= 3 ? ((Spin_struct_2.n - 1) * 6) : 12);
     Spin_struct_2.y = 534;
-    Spin_struct_2.w = 12 + ((Spin_struct_2.n - 1) * 12);
+    Spin_struct_2.w = 12 + (Spin_struct_2.n <= 3 ? ((Spin_struct_2.n - 1) * 12) : 24);
     Spin_struct_2.h = 35;
+    // sprintf(Spin_struct_2.c, "%d", Spin);
     Spin_struct_2.c = "10";
 
     SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans, Spin_struct_2.c, White); // Text
@@ -37,6 +40,8 @@ int Text_Spin (SDL_Renderer *renderer, int Spin, TTF_Font *Sans,SDL_Color White)
 
 
 int Text_S (SDL_Renderer *renderer, int S, TTF_Font *Sans,SDL_Color White) {
+
+    S = S > 999999999999 ? 999999999999 : S;
 
     struct S_struct {
         int n;
@@ -70,6 +75,8 @@ int Text_S (SDL_Renderer *renderer, int S, TTF_Font *Sans,SDL_Color White) {
 
 
 int Text_MS (SDL_Renderer *renderer, int MS, TTF_Font *Sans,SDL_Color White) {
+
+    MS = MS > 999999999999 ? 999999999999 : MS;
 
     struct MS_struct {
         int n;
