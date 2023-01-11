@@ -13,7 +13,7 @@ int Text_Spin (SDL_Renderer *renderer, int Spin, TTF_Font *Sans,SDL_Color White)
         int y;
         int w;
         int h;
-        char c[5];
+        char *c;
     };
     struct Spin_struct Spin_struct_2;
     Spin_struct_2.n = log10(Spin) + 1;

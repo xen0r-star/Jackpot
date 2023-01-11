@@ -1,18 +1,24 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int Read_file(const char* file_name, int* value) {
+
+    bool Erreur_read_file;
     
     FILE* file = fopen(file_name, "r"); // Ouverture du fichier en lecture
     if (file == NULL) { // Vérification de l'ouverture du fichier
-        return 1;
+        Erreur_read_file = false;
+        return Erreur_read_file;
     }
     int nb_read = fscanf(file, "%d", value); // Lecture fichier
     if (feof(file)) { // Vérification fin du fichier
         fclose(file); // Fermeture fichier
-        return 0;
+        Erreur_read_file = true;
+        return Erreur_read_file;
     } else {
         fclose(file); // Fermeture fichier
-        return 1;
+        Erreur_read_file = true;
+        return Erreur_read_file;
     }
 }
 

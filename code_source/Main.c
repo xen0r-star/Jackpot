@@ -2,6 +2,7 @@
 #include <time.h>
 #include <windows.h>
 #include <math.h>
+#include <stdbool.h>
 
 // SDL
 #include <SDL2/SDL.h>
@@ -12,9 +13,58 @@
 #include "Extension/File.h"
 #include "Extension/Draw.h"
 #include "Extension/Text.h"
+// #include "Extension/Picture.h"
 
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 600;
+
+
+
+
+void Color(int couleurDuTexte,int couleurDeFond);
+
+
+
+void Color(int Couleur_texte,int Couleur_fond) // fonction d'affichage de couleurs
+{
+        HANDLE H=GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleTextAttribute(H,Couleur_fond*16+Couleur_texte);
+
+        /* _______ COULEUR _______
+            0 : Noir
+            1 : Bleu foncé
+            2 : Vert foncé
+            3 : Turquoise
+            4 : Rouge foncé
+            5 : Violet
+            6 : Vert caca d'oie
+            7 : Gris clair
+            8 : Gris foncé
+            9 : Bleu fluo
+            10 : Vert fluo
+            11 : Turquoise
+            12 : Rouge fluo
+            13 : Violet 2
+            14 : Jaune
+            15 : Blanc
+        */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Frame
 void sleep_end_of_frame() {
@@ -41,6 +91,11 @@ int main(int argc, char **argv) {
         printf("SDL could not create renderer! SDL_Error: %s\n", SDL_GetError());
         return 1;
     }
+
+    // Alea
+    srand(time(NULL)); // initialise alea
+    int number_1, number_2, number_3;
+
 
     // Icon fenetre
     SDL_Surface *icon = IMG_Load("code_source\\Element\\Logo_2.png");
@@ -75,14 +130,94 @@ int main(int argc, char **argv) {
     // Fonction read_file
     int Spin, S, MS;
 
-    Read_file("donne/Spin.save", &Spin);
-    Read_file("donne/S.save", &S);
-    Read_file("donne/MS.save", &MS);
+    bool Erreur_read_file_bool = Read_file("donne/S.save", &S);
+    Erreur_read_file_bool = Read_file("donne/MS.save", &MS);
+    Erreur_read_file_bool = Read_file("donne/Spin.save", &Spin);
+    char *Erreur_read_file_char = Erreur_read_file_bool == true ? "Correcte" : "Mauvais";
     printf("Spin : %d, S : %d, MS : %d\n", Spin, S, MS);
 
     Text_Spin(renderer, Spin, Sans, White);
     Text_S(renderer, S, Sans, White);
     Text_MS(renderer, MS, Sans, White);
+
+    // Dessin
+    char *Emplacement = argv[0];
+    // char *Picture(char *Emplacement);
+    
+    Color(14,0);
+
+    printf("\n                        BB                             ");
+    Color(12,0);
+    printf("          _      _       ____   _  __  ____     ___    _____    \n");   
+    Color(14,0);
+    printf("                      BGPPGB                           ");
+    Color(12,0);
+    printf("         | |    / \\     / ___| | |/ / |  _ \\   / _ \\  |_   _|   \n");
+    Color(14,0);
+    printf("                     BPPPPPPB                          ");
+    Color(12,0);
+    printf("      _  | |   / _ \\   | |     | ' /  | |_) | | | | |   | |     \n");
+    Color(14,0);
+    printf("                   BGPPPPPPPPGB                        ");
+    Color(12,0);
+    printf("     | |_| |  / ___ \\  | |___  | . \\  |  __/  | |_| |   | |     \n");
+    Color(14,0);
+    printf("                  BPPPPPPPPPPPPB                       ");
+    Color(12,0);
+    printf("      \\___/  /_/   \\_\\  \\____| |_|\\_\\ |_|      \\___/    |_|     \n");
+    Color(14,0);
+    printf("                 BPPPPPPPPPPPPPPB                      \n");
+    printf("           GGBBBGPPPPPPPPPPPPPPPPGBBBGG                \n");
+    printf("    GGBBBGPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPGBBBGG         \n");
+    printf("  GPPPPPPPPPPY   JJ      PPJJJJJP PYPPPPPPPPPPPG       \n");
+    printf("  BBPPPPPPPPPY                     JPPPPPPPPPPBB       ");
+    Color(8,0);
+    printf("           Version :          ");
+    Color(7,0);
+    printf("V 2.5.3\n");
+    Color(14,0);
+    printf("    BGPPPPPPPY                   PJPPPPPPPPPGB         \n");
+    printf("      BPPPPPPY   PJYYYYYJJJJP   JPPPPPPPPPPB           ");
+    Color(8,0);
+    printf("           Emplacement :      ");
+    Color(7,0);
+    printf("%s\n", Emplacement);
+    Color(14,0);
+    printf("       BBPPPPPYYYPPPPPPPPJP    JPPPPPPPPPBB            \n");
+    printf("         BGPPPPPPPPPPYJP      PPPPPPPPPGB              ");
+
+    Color(8,0);
+    printf("           Donnee :           ");
+    if (Erreur_read_file_bool == true) {
+        Color(2,0);
+    }
+    else {
+        Color(4,0);
+    }
+    printf("%s\n", Erreur_read_file_char);
+
+    Color(14,0);
+    printf("          BPPPPPPPJJ          JPPPPPPPPB               \n");
+    printf("          BPPPPPPPP          JPPPPPPPPPB               ");
+    Color(8,0);
+    printf("           ---------------- : \n");
+    Color(14,0);
+    printf("          BPPPPPPP          PJPPPPPPPPPB               \n");
+    printf("          BPPPPPPPPPPPPPPPPPPPPPPPPPPPPB               ");
+    Color(8,0);
+    printf("           ---------------- : \n");
+    Color(14,0);
+    printf("          BPPPPPBPPPPPXEN0RPPPPPPPPPPPPP               \n");
+    printf("          BPPPPPPPPPGGBBGGBBGGPPPPPPPPPB               ");
+    Color(8,0);
+    printf("           ---------------- : \n");
+    Color(14,0);
+    printf("          BPPPPGBBGG          GGBBGPPPPB               \n");
+    printf("          BBBB                      BBBB               \n");
+    printf("                                                       \n");
+    printf("                                                       \n");
+
+    Color(15,0);
     
 
     // Fonction write_file
@@ -101,12 +236,14 @@ int main(int argc, char **argv) {
             int mouse_y = event.motion.y;
             if (SDL_PointInRect(&(SDL_Point){mouse_x, mouse_y}, &button_collision_rect) && (event.button.button == SDL_BUTTON_LEFT || event.button.button == SDL_BUTTON_RIGHT)) { // Vérifier si la souris se trouve dans le rectangle de collision du bouton
                 printf("Clic de la souris dans la zone en (%d, %d)\n", event.button.x, event.button.y); // Bouton gauche
+
                 Draw_picture(renderer, 475, 392, 123, 123, "code_source\\Element\\Bouton_2.bmp");
-                int temps = 0;
-                while (temps < 100000) {
-                    temps++;
-                    printf ("%d\n", temps);
-                }
+
+                number_1 = (rand() % 13) + 1;
+                number_2 = (rand() % 13) + 1;
+                number_3 = (rand() % 13) + 1;
+                printf("number 1 : %d, number 2 : %d, number 3 : %d", number_1, number_2, number_3);
+
                 Draw_picture(renderer, 475, 392, 123, 123, "code_source\\Element\\Bouton.bmp");
             }
 
