@@ -1,0 +1,21 @@
+Score {
+    Spin=10
+    S=15
+    MS=15
+}
+
+Level {
+    Level=0
+    Xp=0
+}
+
+User {
+    Name:La_petit_licorne
+    Language:French
+}
+
+Log {
+    Version:1.05.12
+    MessageTerminal-false
+    MessageLog-false
+}

@@ -34,7 +34,6 @@ int Text_Spin (SDL_Renderer *renderer, int Spin, TTF_Font *Sans,SDL_Color White)
     SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
     SDL_FreeSurface(surfaceMessage);
     SDL_DestroyTexture(Message);
-    // printf("Spin : %d, %d, %d, %d, %d, \"%s\"\n", Spin_struct_2.n, Spin_struct_2.x, Spin_struct_2.y, Spin_struct_2.w, Spin_struct_2.h, Spin_struct_2.c);
 }
 
 
@@ -69,7 +68,6 @@ int Text_S (SDL_Renderer *renderer, int S, TTF_Font *Sans,SDL_Color White) {
     SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
     SDL_FreeSurface(surfaceMessage);
     SDL_DestroyTexture(Message);
-    // printf("S : %d, %d, %d, %d, %d, \"%s\"\n", S_struct_2.n, S_struct_2.x, S_struct_2.y, S_struct_2.w, S_struct_2.h, S_struct_2.c);
 }
 
 
@@ -104,5 +102,4 @@ int Text_MS (SDL_Renderer *renderer, int MS, TTF_Font *Sans,SDL_Color White) {
     SDL_RenderCopy(renderer, Message, NULL, &Message_rect);
     SDL_FreeSurface(surfaceMessage);
     SDL_DestroyTexture(Message);
-    // printf("MS : %d, %d, %d, %d, %d, \"%s\"\n", MS_struct_2.n, MS_struct_2.x, MS_struct_2.y, MS_struct_2.w, MS_struct_2.h, MS_struct_2.c);
 }
