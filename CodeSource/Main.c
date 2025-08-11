@@ -52,7 +52,7 @@ int main(int argc, char **argv) {
     int random_1, random_2, random_3;
 
     // Icon fenetre
-    SDL_Surface *icon = IMG_Load("code_source\\Element\\Logo_2.png");
+    SDL_Surface *icon = IMG_Load("CodeSource\\Element\\Logo_2.png");
     if (icon == NULL)
         printf("Erreur lors du chargement de l icone : %s\n", SDL_GetError());
     SDL_SetWindowIcon(window, icon); // Définition de l'icône de la fenêtre
@@ -64,17 +64,17 @@ int main(int argc, char **argv) {
     // Police de texte
     if (TTF_Init() == -1)
         printf("Erreur lors de l'initialisation de SDL_ttf : %s\n", TTF_GetError());
-    TTF_Font *Sans = TTF_OpenFont("code_source\\Element\\Humnst777_BlkCn_BT.ttf", 500); // Police du texte
+    TTF_Font *Sans = TTF_OpenFont("CodeSource\\Element\\Humnst777_BlkCn_BT.ttf", 500); // Police du texte
     if (Sans == NULL)
         printf("Could not open font, error: %s\n", SDL_GetError());
     TTF_SetFontHinting(Sans, TTF_HINTING_NORMAL); // Activation de l'anti-aliasing
     SDL_Color White = {52, 58, 78}; // Couleur de la police
 
     // Image
-    Draw_picture(renderer, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, "code_source\\Element\\Jackpot.bmp");
+    Draw_picture(renderer, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, "CodeSource\\Element\\Jackpot.bmp");
 
     // Bouton
-    Draw_picture(renderer, 475, 392, 123, 123, "code_source\\Element\\Bouton.bmp");
+    Draw_picture(renderer, 475, 392, 123, 123, "CodeSource\\Element\\Bouton.bmp");
     SDL_Rect button_collision_rect; // Définition de la zone de collision du bouton
     button_collision_rect.x = 475;
     button_collision_rect.y = 392;
@@ -84,9 +84,9 @@ int main(int argc, char **argv) {
     // Fonction read_file
     int Spin, S, MS;
 
-    S = Read_file("donne/S.save", &S);
-    MS = Read_file("donne/MS.save", &MS);
-    Spin = Read_file("donne/Spin.save", &Spin);
+    S = Read_file_int("Score", "S");
+    MS = Read_file_int("Score", "MS");
+    Spin = Read_file_int("Score", "Spin");
 
     // Text_Spin(renderer, Spin, Sans, White);
     // Text_S(renderer, S, Sans, White);
@@ -94,9 +94,9 @@ int main(int argc, char **argv) {
 
 
     // Fonction write_file
-    Write_file("donne/Spin.save", Spin);
-    Write_file("donne/S.save", S);
-    Write_file("donne/MS.save", MS);
+    // Write_file("Donne/Spin.save", Spin);
+    // Write_file("Donne/S.save", S);
+    // Write_file("Donne/MS.save", MS);
  
     // Dessin
     pthread_t Thread_terminal;
@@ -117,14 +117,14 @@ int main(int argc, char **argv) {
             // if (SDL_PointInRect(&(SDL_Point){mouse_x, mouse_y}, &button_collision_rect) && (event.button.button == SDL_BUTTON_LEFT || event.button.button == SDL_BUTTON_RIGHT)) { // Vérifier si la souris se trouve dans le rectangle de collision du bouton
             //     printf("Clic de la souris dans la zone en (%d, %d)\n", event.button.x, event.button.y); // Bouton gauche
 
-            //     Draw_picture(renderer, 475, 392, 123, 123, "code_source\\Element\\Bouton_2.bmp");
+            //     Draw_picture(renderer, 475, 392, 123, 123, "CodeSource\\Element\\Bouton_2.bmp");
 
             //     random_1 = (rand() % 13) + 1;
             //     random_2 = (rand() % 13) + 1;
             //     random_3 = (rand() % 13) + 1;
             //     printf("number 1 : %d, number 2 : %d, number 3 : %d", random_1, random_2, random_3);
 
-            //     Draw_picture(renderer, 475, 392, 123, 123, "code_source\\Element\\Bouton.bmp");
+            //     Draw_picture(renderer, 475, 392, 123, 123, "CodeSource\\Element\\Bouton.bmp");
             // }
 
         SDL_RenderPresent(renderer);

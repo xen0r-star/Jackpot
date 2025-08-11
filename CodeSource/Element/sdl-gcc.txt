@@ -1,0 +1,1 @@
+gcc Main.c Extension/File.c Extension/Draw.c Extension/Text.c Extension/Terminal.c -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf -lSDL2_image -o ../Jackpot

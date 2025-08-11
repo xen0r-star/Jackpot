@@ -71,14 +71,14 @@ void *Terminal() {
     Color(6,0); printf("                 BPPPPPPPPPPPPPPB                      \n           GGBBBGPPPPPPPPPPPPPPPPGBBBGG                \n    GGBBBGPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPGBBBGG         \n  GPPPPPPPPPPY   JJ      PPJJJJJP PYPPPPPPPPPPPG       ");
 
         Color(8,0); printf("           Nom : ");
-        Color(3,0); Read_save("donne/Name.save");
+        Color(3,0); Read_save("Donne/Name.save");
 
     Color(6,0); printf("  BBPPPPPPPPPY                     JPPPPPPPPPPBB       \n    BGPPPPPPPY                   PJPPPPPPPPPGB         ");
 
         Color(8,0); printf("           Niveau : ");
         Color(7,0);
 
-        // char *Niveau = Read_save("donne/Level.save");
+        // char *Niveau = Read_save("Donne/Level.save");
         char *Barre="#####....................";
         // Color(6,0);
         // printf("%s", Niveau);
@@ -93,7 +93,7 @@ void *Terminal() {
     Color(6,0); printf("\n      BPPPPPPY   PJYYYYYJJJJP   JPPPPPPPPPPB           \n       BBPPPPPYYYPPPPPPPPJP    JPPPPPPPPPBB            ");
 
         Color(8,0); printf("           Version : ");
-        Color(7,0); printf("V "); Read_save("donne/Version.save");
+        Color(7,0); printf("V "); Read_save("Donne/Version.save");
 
     Color(6,0); printf("         BGPPPPPPPPPPYJP      PPPPPPPPPGB              \n          BPPPPPPPJJ          JPPPPPPPPB               ");
 
@@ -272,7 +272,7 @@ void *Terminal() {
                     break;
                 case 12:
                     printf("Votre nom est ");
-                    Color(3,0); Read_save("donne/Name.save"); 
+                    Color(3,0); Read_save("Donne/Name.save"); 
                     Color(15,0); 
                     break;
                 case 13:
