@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <img src="code_source/Element/Logo.png" width="200">
+  <img src="./docs/Logo.png" width="200">
   <br>
 </h1>
 
@@ -8,8 +8,7 @@
 
 <p align="center">
   <a href="https://www.libsdl.org/">
-    <img src="https://img.shields.io/badge/SDL-2.26.1-brightgreen"
-         alt="SDL : 2.26.1">
+    <img src="https://img.shields.io/badge/SDL-2.26.1-brightgreen" alt="SDL : 2.26.1">
   </a>
   <img src="https://img.shields.io/badge/Support-Windows-red">
   <img src="https://img.shields.io/badge/Code-Open__source-blue">
@@ -58,7 +57,7 @@ Pour lancer le jeux il vous suffit juste de lancer le fichier `Jackpor.exe`. Le 
 
   <h1 align="left">
     <br>
-      <img src="code_source/Element/Example.png" width="400">
+      <img src="./docs/Example.png" width="400">
   </h1>
 
   1. `Spin` Pour lancer les une partie
