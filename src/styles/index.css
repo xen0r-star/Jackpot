@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+body {
+    background: #070a11;
+    overflow: hidden;
+}
+
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-128px); /* (32 * 4 = 128px) */
+  }
+}
+
+.reel-scroll {
+  animation: scroll 0.1s linear infinite;
+}
+
+
+@keyframes slowScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-32px);
+  }
+}
+
+.reel-slow {
+  animation: slowScroll 0.3s ease-out infinite;
+}
