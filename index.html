@@ -1,13 +1,41 @@
+<!--! ┌─────────────────────────────────────────┐ !-->
+<!--! │      _            _                _    │ !-->
+<!--! │     | | __ _  ___| | ___ __   ___ | |_  │ !-->
+<!--! │  _  | |/ _` |/ __| |/ / '_ \ / _ \| __| │ !-->
+<!--! │ | |_| | (_| | (__|   <| |_) | (_) | |_  │ !-->
+<!--! │  \___/ \__,_|\___|_|\_\ .__/ \___/ \__| │ !-->
+<!--! │                       |_|               │ !-->
+<!--! │                           By Xen0r-Star │ !-->
+<!--! └─────────────────────────────────────────┘ !-->
+
+
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/" />
+    <link rel="icon" type="image/svg+xml" href="/Logo_2.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
+    <title>Jackpot Machine</title>
+
+    <script>
+        const emojis = ["❤️", "🍇", "🍋", "🍀", "🍉", "💎", "🍎", "🍌", "💰", "🍒", "🍊"];
+        let emojiStart = 0;
+
+        function getEmojiWindow(start) {
+            return Array.from({ length: 3 }, (_, i) => emojis[(start + i) % emojis.length]).join("");
+        }
+
+        setInterval(() => {
+            emojiStart = (emojiStart - 1 + emojis.length) % emojis.length;
+            const right = getEmojiWindow(emojiStart + 3);
+            document.title = `Jackpot Machine | ${right} |`;
+        }, 750);
+    </script>
+</head>
+
+<body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-  </body>
+</body>
 </html>

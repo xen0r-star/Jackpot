@@ -7,28 +7,141 @@ body {
 
 
 @keyframes scroll {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-128px); /* (32 * 4 = 128px) */
-  }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-128px); /* (32 * 4 = 128px) */
+    }
 }
 
 .reel-scroll {
-  animation: scroll 0.1s linear infinite;
+    animation: scroll 0.1s linear infinite;
 }
 
 
 @keyframes slowScroll {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-32px);
-  }
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-32px);
+    }
 }
 
 .reel-slow {
-  animation: slowScroll 0.3s ease-out infinite;
+    animation: slowScroll 0.3s ease-out infinite;
+}
+
+@keyframes scorePopUp {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateY(-20px) scale(1.2);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-40px) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+/* Custom Scrollbar - Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0B1123;
+    border-radius: 10px;
+    border: 2px solid #B62345;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #B62345, #FFCD1E);
+    border-radius: 10px;
+    border: 2px solid #0B1123;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #FFCD1E, #B62345);
+    box-shadow: 0 0 8px rgba(255, 205, 30, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+    background: #0B1123;
+}
+
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #B62345 #0B1123;
+}
+
+/* Animations Jackpot */
+@keyframes jackpotPulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700, 0 0 60px #FFD700;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0 0 30px #FFD700, 0 0 60px #FFD700, 0 0 90px #FFD700, 0 0 120px #FF6B6B;
+    }
+}
+
+@keyframes jackpotShake {
+    0%, 100% { transform: translateX(0); }
+    10% { transform: translateX(-10px); }
+    20% { transform: translateX(10px); }
+    30% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    50% { transform: translateX(-10px); }
+    60% { transform: translateX(10px); }
+    70% { transform: translateX(-10px); }
+    80% { transform: translateX(10px); }
+    90% { transform: translateX(-10px); }
+}
+
+@keyframes jackpotGlow {
+    0% {
+        box-shadow: 0 0 20px #FFD700;
+        border-color: #FFD700;
+    }
+    25% {
+        box-shadow: 0 0 40px #FF6B6B, 0 0 60px #FFD700;
+        border-color: #FF6B6B;
+    }
+    50% {
+        box-shadow: 0 0 40px #4ECDC4, 0 0 60px #FF6B6B;
+        border-color: #4ECDC4;
+    }
+    75% {
+        box-shadow: 0 0 40px #45B7D1, 0 0 60px #4ECDC4;
+        border-color: #45B7D1;
+    }
+    100% {
+        box-shadow: 0 0 20px #FFD700;
+        border-color: #FFD700;
+    }
+}
+
+.jackpot-animation {
+    animation: jackpotPulse 0.5s ease-in-out infinite, jackpotShake 0.1s ease-in-out infinite;
+}
+
+.jackpot-glow {
+    animation: jackpotGlow 1s ease-in-out infinite;
 }
