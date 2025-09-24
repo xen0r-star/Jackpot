@@ -18,7 +18,7 @@ const SlotMachine: React.FC<SlotMachineProps> = ({ reels }) => {
                             <div className="w-20 h-20 flex items-center justify-center">
                                 {!reel.isSpinning && (
                                     <img
-                                        src={`/src/assets/symbole/${SYMBOLS[reel.currentSymbol]}.svg`}
+                                        src={`./symbole/${SYMBOLS[reel.currentSymbol]}.svg`}
                                         alt={SYMBOLS[reel.currentSymbol]}
                                         className="w-full h-full"
                                     />
@@ -33,7 +33,7 @@ const SlotMachine: React.FC<SlotMachineProps> = ({ reels }) => {
                                     {[...Array(20)].map((_, i) => (
                                         <div key={i} className="w-32 h-32 flex items-center justify-center flex-shrink-0">
                                             <img
-                                                src={`/src/assets/symbole/${SYMBOLS[(reel.currentSymbol + i) % SYMBOLS.length]}.svg`}
+                                                src={`./symbole/${SYMBOLS[(reel.currentSymbol + i) % SYMBOLS.length]}.svg`}
                                                 alt={SYMBOLS[(reel.currentSymbol + i) % SYMBOLS.length]}
                                                 className="w-20 h-20"
                                             />
