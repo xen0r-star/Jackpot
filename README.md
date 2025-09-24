@@ -15,7 +15,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/xen0r-star/Jackpot?style=for-the-badge)](https://github.com/xen0r-star/Jackpot/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/xen0r-star/Jackpot?style=for-the-badge)](https://github.com/xen0r-star/Jackpot/network/members)
 
-[🎮 Play Online](#) • [📖 Documentation](#features) • [🐛 Report Bug](https://github.com/xen0r-star/Jackpot/issues)
+[🎮 Play Online](https://xen0r-star.github.io/Jackpot/) • [📖 Documentation](#-features) • [🐛 Report Bug](https://github.com/xen0r-star/Jackpot/issues)
 
 </div>
 
